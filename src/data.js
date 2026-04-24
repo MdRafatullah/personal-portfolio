@@ -26,7 +26,7 @@ export const profile = {
   stats: [
     { value: "100%", label: "Accuracy Focus" },
     { value: "2026", label: "BBA Ongoing" },
-    { value: "5.00", label: "HSC GPA" }
+    { value: "3.33", label: "Versity CGPA" }
   ]
 };
 
