@@ -53,20 +53,20 @@ const sectionVariants = {
 function SectionHeader({ kicker, title, copy }) {
   return (
     <motion.div
-      className="mx-auto mb-12 max-w-3xl text-center"
+      className="mx-auto mb-8 max-w-3xl text-center sm:mb-12"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-80px" }}
       variants={sectionVariants}
       transition={{ duration: 0.7, ease: "easeOut" }}
     >
-      <p className="mb-3 text-sm font-semibold uppercase tracking-[0.28em] text-electric">
+      <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em] text-electric sm:text-sm sm:tracking-[0.28em]">
         {kicker}
       </p>
-      <h2 className="text-balance text-3xl font-semibold text-graphite dark:text-white sm:text-4xl lg:text-5xl">
+      <h2 className="text-balance text-2xl font-semibold text-graphite dark:text-white sm:text-4xl lg:text-5xl">
         {title}
       </h2>
-      <p className="mt-5 text-pretty text-base leading-8 text-slate-600 dark:text-slate-300">
+      <p className="mt-4 text-pretty text-sm leading-7 text-slate-600 dark:text-slate-300 sm:mt-5 sm:text-base sm:leading-8">
         {copy}
       </p>
     </motion.div>
@@ -179,41 +179,41 @@ function App() {
       <main>
         <section
           id="home"
-          className="relative flex min-h-screen items-center px-5 pb-20 pt-32 sm:px-8 lg:px-12"
+          className="relative flex min-h-screen items-center px-4 pb-16 pt-28 sm:px-8 sm:pb-20 sm:pt-32 lg:px-12"
         >
-          <div className="mx-auto grid w-full max-w-7xl items-center gap-10 lg:grid-cols-[1.04fr_0.96fr]">
+          <div className="mx-auto grid w-full max-w-7xl items-center gap-8 lg:grid-cols-[1.04fr_0.96fr] lg:gap-10">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-slate-900/10 bg-white/60 px-4 py-2 text-sm font-medium text-slate-700 shadow-sm backdrop-blur-xl dark:border-white/10 dark:bg-white/8 dark:text-slate-200">
-                <Sparkles className="h-4 w-4 text-mint" aria-hidden="true" />
+              <div className="mb-6 inline-flex max-w-full items-center gap-2 rounded-full border border-slate-900/10 bg-white/60 px-3 py-2 text-xs font-medium leading-5 text-slate-700 shadow-sm backdrop-blur-xl dark:border-white/10 dark:bg-white/8 dark:text-slate-200 sm:mb-7 sm:px-4 sm:text-sm">
+                <Sparkles className="h-4 w-4 shrink-0 text-mint" aria-hidden="true" />
                 {profile.availability}
               </div>
 
-              <h1 className="max-w-4xl text-balance text-5xl font-semibold leading-[0.95] tracking-normal text-graphite dark:text-white sm:text-6xl lg:text-7xl xl:text-8xl">
+              <h1 className="max-w-4xl text-balance text-[clamp(2.75rem,13vw,4.5rem)] font-semibold leading-[0.95] tracking-normal text-graphite dark:text-white sm:text-6xl lg:text-7xl xl:text-8xl">
                 {profile.name}
               </h1>
-              <p className="mt-6 min-h-12 text-2xl font-medium text-slate-700 dark:text-slate-200 sm:text-3xl">
+              <p className="mt-5 min-h-9 text-xl font-medium text-slate-700 dark:text-slate-200 sm:mt-6 sm:min-h-12 sm:text-3xl">
                 {typedTitle}
-                <span className="ml-1 inline-block h-7 w-[3px] translate-y-1 animate-pulse rounded-full bg-electric" />
+                <span className="ml-1 inline-block h-6 w-[3px] translate-y-1 animate-pulse rounded-full bg-electric sm:h-7" />
               </p>
-              <p className="mt-6 max-w-2xl text-pretty text-lg leading-8 text-slate-600 dark:text-slate-300">
+              <p className="mt-5 max-w-2xl text-pretty text-base leading-7 text-slate-600 dark:text-slate-300 sm:mt-6 sm:text-lg sm:leading-8">
                 {profile.tagline}
               </p>
 
-              <div className="mt-7 flex flex-col gap-3 text-sm text-slate-600 dark:text-slate-300 sm:flex-row sm:flex-wrap">
-                <span className="inline-flex items-center gap-2">
-                  <MapPin className="h-4 w-4 text-electric" aria-hidden="true" />
+              <div className="mt-6 flex flex-col gap-3 text-sm text-slate-600 dark:text-slate-300 sm:mt-7 sm:flex-row sm:flex-wrap">
+                <span className="inline-flex min-w-0 items-start gap-2">
+                  <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-electric" aria-hidden="true" />
                   {profile.location}
                 </span>
-                <a className="inline-flex items-center gap-2 hover:text-electric" href={`mailto:${profile.email}`}>
-                  <Mail className="h-4 w-4 text-electric" aria-hidden="true" />
-                  {profile.email}
+                <a className="inline-flex min-w-0 items-start gap-2 hover:text-electric" href={`mailto:${profile.email}`}>
+                  <Mail className="mt-0.5 h-4 w-4 shrink-0 text-electric" aria-hidden="true" />
+                  <span className="break-all">{profile.email}</span>
                 </a>
-                <a className="inline-flex items-center gap-2 hover:text-electric" href="tel:+8801882222669">
-                  <Phone className="h-4 w-4 text-electric" aria-hidden="true" />
+                <a className="inline-flex min-w-0 items-start gap-2 hover:text-electric" href="tel:+8801882222669">
+                  <Phone className="mt-0.5 h-4 w-4 shrink-0 text-electric" aria-hidden="true" />
                   {profile.phone}
                 </a>
               </div>
@@ -221,29 +221,29 @@ function App() {
               <div className="mt-9 flex flex-col gap-4 sm:flex-row">
                 <a
                   href="#projects"
-                  className="group inline-flex items-center justify-center gap-2 rounded-full bg-graphite px-6 py-3 text-sm font-semibold text-white shadow-glow transition duration-300 hover:-translate-y-1 hover:bg-electric focus:outline-none focus:ring-2 focus:ring-electric focus:ring-offset-2 focus:ring-offset-cloud dark:bg-white dark:text-ink dark:hover:bg-mint dark:focus:ring-offset-ink"
+                  className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-graphite px-6 py-3 text-sm font-semibold text-white shadow-glow transition duration-300 hover:-translate-y-1 hover:bg-electric focus:outline-none focus:ring-2 focus:ring-electric focus:ring-offset-2 focus:ring-offset-cloud dark:bg-white dark:text-ink dark:hover:bg-mint dark:focus:ring-offset-ink sm:w-auto"
                 >
                   View My Work
                   <ArrowUpRight className="h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </a>
                 <a
                   href="#contact"
-                  className="inline-flex items-center justify-center rounded-full border border-slate-900/10 bg-white/60 px-6 py-3 text-sm font-semibold text-graphite backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-electric/50 hover:text-electric dark:border-white/10 dark:bg-white/8 dark:text-white"
+                  className="inline-flex w-full items-center justify-center rounded-full border border-slate-900/10 bg-white/60 px-6 py-3 text-sm font-semibold text-graphite backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-electric/50 hover:text-electric dark:border-white/10 dark:bg-white/8 dark:text-white sm:w-auto"
                 >
                   Contact Rafatullah
                 </a>
               </div>
 
-              <dl className="mt-12 grid max-w-2xl grid-cols-3 gap-3">
+              <dl className="mt-10 grid max-w-2xl grid-cols-1 gap-3 min-[430px]:grid-cols-3 sm:mt-12">
                 {profile.stats.map((stat) => (
                   <div
                     key={stat.label}
-                    className="rounded-lg border border-slate-900/10 bg-white/55 p-4 backdrop-blur-xl dark:border-white/10 dark:bg-white/8"
+                    className="rounded-lg border border-slate-900/10 bg-white/55 p-4 backdrop-blur-xl dark:border-white/10 dark:bg-white/8 min-[430px]:p-3 sm:p-4"
                   >
-                    <dt className="text-xs uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
+                    <dt className="text-[0.68rem] uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400 sm:text-xs sm:tracking-[0.2em]">
                       {stat.label}
                     </dt>
-                    <dd className="mt-1 text-2xl font-semibold text-graphite dark:text-white">
+                    <dd className="mt-1 text-2xl font-semibold text-graphite dark:text-white min-[430px]:text-xl sm:text-2xl">
                       {stat.value}
                     </dd>
                   </div>
@@ -258,8 +258,8 @@ function App() {
               transition={{ duration: 0.9, delay: 0.15, ease: "easeOut" }}
             >
               <div className="absolute inset-8 rounded-full bg-electric/20 blur-3xl" />
-              <div className="relative overflow-hidden rounded-[2rem] border border-slate-900/10 bg-white/55 p-4 shadow-glass backdrop-blur-2xl dark:border-white/10 dark:bg-white/8">
-                <div className="relative min-h-[34rem] overflow-hidden rounded-[1.5rem] border border-white/20 bg-ink text-white">
+              <div className="relative overflow-hidden rounded-[1.5rem] border border-slate-900/10 bg-white/55 p-3 shadow-glass backdrop-blur-2xl dark:border-white/10 dark:bg-white/8 sm:rounded-[2rem] sm:p-4">
+                <div className="relative min-h-[28rem] overflow-hidden rounded-[1.15rem] border border-white/20 bg-ink text-white sm:min-h-[34rem] sm:rounded-[1.5rem]">
                   {hasCoverImage ? (
                     <img
                       className="absolute inset-0 h-full w-full object-cover object-center"
@@ -275,16 +275,16 @@ function App() {
                     </div>
                   )}
                   <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/20 to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <div className="rounded-3xl border border-white/10 bg-white/10 p-5 backdrop-blur-2xl">
-                      <p className="text-sm uppercase tracking-[0.24em] text-mint">
+                  <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6">
+                    <div className="rounded-2xl border border-white/10 bg-white/10 p-4 backdrop-blur-2xl sm:rounded-3xl sm:p-5">
+                      <p className="text-xs uppercase tracking-[0.2em] text-mint sm:text-sm sm:tracking-[0.24em]">
                         {profile.title}
                       </p>
-                      <h2 className="mt-3 text-3xl font-semibold">{profile.name}</h2>
-                      <div className="mt-5 grid gap-3 sm:grid-cols-3">
+                      <h2 className="mt-2 text-2xl font-semibold sm:mt-3 sm:text-3xl">{profile.name}</h2>
+                      <div className="mt-4 grid grid-cols-3 gap-2 sm:mt-5 sm:gap-3">
                         {["SMM", "Excel", "Canva"].map((item) => (
-                          <div key={item} className="rounded-lg bg-white/10 px-4 py-3 text-center">
-                            <p className="text-sm font-semibold">{item}</p>
+                          <div key={item} className="rounded-lg bg-white/10 px-2 py-3 text-center sm:px-4">
+                            <p className="text-xs font-semibold sm:text-sm">{item}</p>
                           </div>
                         ))}
                       </div>
@@ -296,7 +296,7 @@ function App() {
           </div>
         </section>
 
-        <section id="about" className="px-5 py-24 sm:px-8 lg:px-12">
+        <section id="about" className="px-4 py-16 sm:px-8 sm:py-24 lg:px-12">
           <div className="mx-auto max-w-7xl">
             <SectionHeader
               kicker="About"
@@ -306,17 +306,17 @@ function App() {
 
             <div className="grid gap-6 lg:grid-cols-[0.86fr_1.14fr]">
               <motion.div
-                className="rounded-3xl border border-slate-900/10 bg-white/65 p-8 shadow-sm backdrop-blur-xl dark:border-white/10 dark:bg-white/8"
+                className="rounded-3xl border border-slate-900/10 bg-white/65 p-5 shadow-sm backdrop-blur-xl dark:border-white/10 dark:bg-white/8 sm:p-8"
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, margin: "-90px" }}
                 variants={sectionVariants}
                 transition={{ duration: 0.7 }}
               >
-                <h3 className="text-2xl font-semibold text-graphite dark:text-white">
+                <h3 className="text-xl font-semibold text-graphite dark:text-white sm:text-2xl">
                   Practical, organized, and ready to support growing teams.
                 </h3>
-                <p className="mt-5 leading-8 text-slate-600 dark:text-slate-300">
+                <p className="mt-4 text-sm leading-7 text-slate-600 dark:text-slate-300 sm:mt-5 sm:text-base sm:leading-8">
                   Dedicated and detail-oriented BBA Finance student at Jagannath University
                   with a focus on finance and business administration. Proficient in MS
                   Office, MS Excel data handling, content writing, AI research tools, and
@@ -326,9 +326,9 @@ function App() {
                   {focusAreas.map((item) => (
                     <div
                       key={item}
-                      className="flex items-center gap-3 rounded-lg bg-slate-900/[0.04] px-4 py-3 text-sm font-medium text-slate-700 dark:bg-white/8 dark:text-slate-200"
+                      className="flex items-start gap-3 rounded-lg bg-slate-900/[0.04] px-4 py-3 text-sm font-medium text-slate-700 dark:bg-white/8 dark:text-slate-200"
                     >
-                      <CheckCircle2 className="h-4 w-4 text-mint" aria-hidden="true" />
+                      <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-mint" aria-hidden="true" />
                       {item}
                     </div>
                   ))}
@@ -358,22 +358,22 @@ function App() {
                   return (
                     <motion.div
                       key={skill.name}
-                      className="rounded-3xl border border-slate-900/10 bg-white/65 p-6 shadow-sm backdrop-blur-xl transition hover:-translate-y-1 hover:border-electric/40 dark:border-white/10 dark:bg-white/8"
+                      className="rounded-3xl border border-slate-900/10 bg-white/65 p-5 shadow-sm backdrop-blur-xl transition hover:-translate-y-1 hover:border-electric/40 dark:border-white/10 dark:bg-white/8 sm:p-6"
                       initial={{ opacity: 0, x: 24 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true, margin: "-80px" }}
                       transition={{ delay: index * 0.08, duration: 0.55 }}
                     >
-                      <div className="flex items-center justify-between gap-4">
-                        <div className="flex items-center gap-4">
-                          <div className="grid h-12 w-12 place-items-center rounded-2xl bg-gradient-to-br from-electric/20 to-violet/20 text-electric">
+                      <div className="flex items-start justify-between gap-3">
+                        <div className="flex min-w-0 items-start gap-3 sm:gap-4">
+                          <div className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-electric/20 to-violet/20 text-electric sm:h-12 sm:w-12">
                             <Icon className="h-6 w-6" aria-hidden="true" />
                           </div>
-                          <div>
+                          <div className="min-w-0">
                             <h3 className="font-semibold text-graphite dark:text-white">
                               {skill.name}
                             </h3>
-                            <p className="text-sm text-slate-500 dark:text-slate-400">
+                            <p className="mt-1 text-sm leading-6 text-slate-600 dark:text-white/80">
                               {skill.description}
                             </p>
                           </div>
@@ -397,7 +397,7 @@ function App() {
           </div>
         </section>
 
-        <section id="projects" className="px-5 py-24 sm:px-8 lg:px-12">
+        <section id="projects" className="px-4 py-16 sm:px-8 sm:py-24 lg:px-12">
           <div className="mx-auto max-w-7xl">
             <SectionHeader
               kicker="Work"
@@ -405,7 +405,7 @@ function App() {
               copy="The CV does not list public project links yet, so these cards present the strongest professional focus areas and can be swapped for live case studies later."
             />
 
-            <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+            <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
               {projects.map((project, index) => (
                 <ProjectCard key={project.title} project={project} index={index} />
               ))}
@@ -413,7 +413,7 @@ function App() {
           </div>
         </section>
 
-        <section id="experience" className="px-5 py-24 sm:px-8 lg:px-12">
+        <section id="experience" className="px-4 py-16 sm:px-8 sm:py-24 lg:px-12">
           <div className="mx-auto max-w-6xl">
             <SectionHeader
               kicker="Experience"
@@ -427,7 +427,7 @@ function App() {
                 {timeline.map((item, index) => (
                   <motion.article
                     key={`${item.year}-${item.title}`}
-                    className="relative rounded-3xl border border-slate-900/10 bg-white/65 p-6 shadow-sm backdrop-blur-xl dark:border-white/10 dark:bg-white/8 sm:ml-12"
+                    className="relative rounded-3xl border border-slate-900/10 bg-white/65 p-5 shadow-sm backdrop-blur-xl dark:border-white/10 dark:bg-white/8 sm:ml-12 sm:p-6"
                     initial={{ opacity: 0, y: 24 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-80px" }}
@@ -436,10 +436,10 @@ function App() {
                     <div className="absolute -left-[3.32rem] top-8 hidden h-8 w-8 rounded-full border-4 border-cloud bg-electric shadow-glow dark:border-ink sm:block" />
                     <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                       <div>
-                        <p className="text-sm font-semibold uppercase tracking-[0.24em] text-electric">
+                        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-electric sm:text-sm sm:tracking-[0.24em]">
                           {item.year}
                         </p>
-                        <h3 className="mt-2 text-xl font-semibold text-graphite dark:text-white">
+                        <h3 className="mt-2 text-lg font-semibold text-graphite dark:text-white sm:text-xl">
                           {item.title}
                         </h3>
                         <p className="mt-1 text-slate-500 dark:text-slate-400">
@@ -450,7 +450,7 @@ function App() {
                         {item.type}
                       </div>
                     </div>
-                    <p className="mt-5 leading-8 text-slate-600 dark:text-slate-300">
+                    <p className="mt-4 text-sm leading-7 text-slate-600 dark:text-slate-300 sm:mt-5 sm:text-base sm:leading-8">
                       {item.description}
                     </p>
                   </motion.article>
@@ -460,7 +460,7 @@ function App() {
           </div>
         </section>
 
-        <section id="contact" className="px-5 py-24 sm:px-8 lg:px-12">
+        <section id="contact" className="px-4 py-16 sm:px-8 sm:py-24 lg:px-12">
           <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.92fr_1.08fr]">
             <motion.div
               initial="hidden"
@@ -469,13 +469,13 @@ function App() {
               variants={sectionVariants}
               transition={{ duration: 0.7 }}
             >
-              <p className="mb-3 text-sm font-semibold uppercase tracking-[0.28em] text-electric">
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em] text-electric sm:text-sm sm:tracking-[0.28em]">
                 Contact
               </p>
-              <h2 className="text-balance text-3xl font-semibold text-graphite dark:text-white sm:text-5xl">
+              <h2 className="text-balance text-2xl font-semibold text-graphite dark:text-white sm:text-5xl">
                 Available for social media, content, and organized data support.
               </h2>
-              <p className="mt-6 max-w-xl text-pretty leading-8 text-slate-600 dark:text-slate-300">
+              <p className="mt-4 max-w-xl text-pretty text-sm leading-7 text-slate-600 dark:text-slate-300 sm:mt-6 sm:text-base sm:leading-8">
                 Reach out for SMM support, content writing, Excel data entry, or junior
                 business operations opportunities in Dhaka.
               </p>
@@ -491,7 +491,7 @@ function App() {
                       href={link.href}
                       target={opensNewTab ? "_blank" : undefined}
                       rel={opensNewTab ? "noreferrer" : undefined}
-                      className="group flex items-center justify-between rounded-lg border border-slate-900/10 bg-white/60 px-5 py-4 font-medium text-slate-700 backdrop-blur-xl transition hover:-translate-y-1 hover:border-electric/50 hover:text-electric dark:border-white/10 dark:bg-white/8 dark:text-slate-200"
+                      className="group flex items-center justify-between rounded-lg border border-slate-900/10 bg-white/60 px-4 py-4 font-medium text-slate-700 backdrop-blur-xl transition hover:-translate-y-1 hover:border-electric/50 hover:text-electric dark:border-white/10 dark:bg-white/8 dark:text-slate-200 sm:px-5"
                     >
                       <span className="flex items-center gap-3">
                         <Icon className="h-4 w-4 text-electric" aria-hidden="true" />
@@ -506,7 +506,7 @@ function App() {
                 })}
               </div>
 
-              <div className="mt-6 rounded-3xl border border-slate-900/10 bg-white/60 p-6 backdrop-blur-xl dark:border-white/10 dark:bg-white/8">
+              <div className="mt-6 rounded-3xl border border-slate-900/10 bg-white/60 p-5 backdrop-blur-xl dark:border-white/10 dark:bg-white/8 sm:p-6">
                 <p className="text-sm font-semibold uppercase tracking-[0.24em] text-electric">
                   Reference
                 </p>
@@ -518,7 +518,7 @@ function App() {
                 </p>
                 <p className="text-slate-500 dark:text-slate-400">{reference.organization}</p>
                 <div className="mt-4 flex flex-col gap-2 text-sm text-slate-600 dark:text-slate-300">
-                  <a href={`mailto:${reference.email}`} className="hover:text-electric">
+                  <a href={`mailto:${reference.email}`} className="break-all hover:text-electric">
                     {reference.email}
                   </a>
                   <a href="tel:+8801711246101" className="hover:text-electric">
@@ -529,7 +529,7 @@ function App() {
             </motion.div>
 
             <motion.form
-              className="rounded-3xl border border-slate-900/10 bg-white/70 p-6 shadow-glass backdrop-blur-2xl dark:border-white/10 dark:bg-white/10 sm:p-8"
+              className="rounded-3xl border border-slate-900/10 bg-white/70 p-5 shadow-glass backdrop-blur-2xl dark:border-white/10 dark:bg-white/10 sm:p-8"
               onSubmit={handleSubmit}
               initial={{ opacity: 0, y: 28 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -577,7 +577,7 @@ function App() {
               <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                 <button
                   type="submit"
-                  className="group inline-flex items-center justify-center gap-2 rounded-full bg-graphite px-6 py-3 text-sm font-semibold text-white shadow-glow transition hover:-translate-y-1 hover:bg-electric focus:outline-none focus:ring-2 focus:ring-electric focus:ring-offset-2 focus:ring-offset-cloud dark:bg-white dark:text-ink dark:hover:bg-mint dark:focus:ring-offset-ink"
+                  className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-graphite px-6 py-3 text-sm font-semibold text-white shadow-glow transition hover:-translate-y-1 hover:bg-electric focus:outline-none focus:ring-2 focus:ring-electric focus:ring-offset-2 focus:ring-offset-cloud dark:bg-white dark:text-ink dark:hover:bg-mint dark:focus:ring-offset-ink sm:w-auto"
                 >
                   Send Message
                   <Send className="h-4 w-4 transition group-hover:translate-x-0.5" />
@@ -599,7 +599,7 @@ function App() {
 
       <Footer />
 
-      <div className="fixed bottom-5 right-5 z-40 flex gap-2">
+      <div className="fixed bottom-4 right-4 z-40 flex gap-2 sm:bottom-5 sm:right-5">
         <a
           href={`mailto:${profile.email}`}
           className="grid h-11 w-11 place-items-center rounded-full border border-slate-900/10 bg-white/70 text-slate-700 shadow-sm backdrop-blur-xl transition hover:-translate-y-1 hover:text-electric dark:border-white/10 dark:bg-white/10 dark:text-slate-200"
