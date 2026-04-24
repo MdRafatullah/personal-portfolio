@@ -27,7 +27,7 @@ function ProjectCard({ project, index }) {
 
   return (
     <motion.article
-      className="group relative h-full rounded-3xl border border-slate-900/10 bg-white/65 p-3 shadow-sm backdrop-blur-xl transition hover:border-electric/40 dark:border-white/10 dark:bg-white/8 sm:p-4"
+      className="group relative h-full rounded-3xl border border-slate-900/10 bg-white/65 p-3 shadow-sm backdrop-blur-xl transition hover:border-electric/40 dark:border-white/15 dark:bg-slate-950/75 sm:p-4"
       style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
       initial={{ opacity: 0, y: 26 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -60,7 +60,7 @@ function ProjectCard({ project, index }) {
 
       <div className="relative p-2 pt-5 sm:pt-6" style={{ transform: "translateZ(18px)" }}>
         <h3 className="text-lg font-semibold text-graphite dark:text-white sm:text-xl">{project.title}</h3>
-        <p className="mt-3 min-h-0 text-sm leading-7 text-slate-600 dark:text-slate-300 sm:min-h-24 sm:text-base">
+        <p className="mt-3 min-h-0 text-sm leading-7 text-slate-600 dark:text-white/85 sm:min-h-24 sm:text-base">
           {project.description}
         </p>
 
@@ -68,7 +68,7 @@ function ProjectCard({ project, index }) {
           {project.technologies.map((tech) => (
             <span
               key={tech}
-              className="rounded-full border border-slate-900/10 bg-slate-900/[0.04] px-3 py-1 text-xs font-medium text-slate-600 dark:border-white/10 dark:bg-white/8 dark:text-slate-300"
+              className="rounded-full border border-slate-900/10 bg-slate-900/[0.04] px-3 py-1 text-xs font-medium text-slate-600 dark:border-white/20 dark:bg-slate-900/90 dark:text-white"
             >
               {tech}
             </span>
