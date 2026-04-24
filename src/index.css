@@ -39,10 +39,29 @@ a {
 
 .animated-aurora {
   background:
-    radial-gradient(circle at 20% 20%, rgba(65, 240, 194, 0.6), transparent 28%),
-    radial-gradient(circle at 70% 28%, rgba(155, 92, 255, 0.58), transparent 32%),
-    radial-gradient(circle at 50% 70%, rgba(79, 140, 255, 0.5), transparent 38%);
+    radial-gradient(circle at 20% 20%, rgba(65, 240, 194, 0.72), transparent 28%),
+    radial-gradient(circle at 70% 28%, rgba(155, 92, 255, 0.68), transparent 32%),
+    radial-gradient(circle at 50% 70%, rgba(79, 140, 255, 0.62), transparent 38%);
   animation: aurora 11s ease-in-out infinite alternate;
+}
+
+.ambient-field {
+  background:
+    radial-gradient(circle at var(--ambient-x, 16%) 18%, rgba(79, 140, 255, 0.42), transparent 30%),
+    radial-gradient(circle at 84% var(--ambient-y, 28%), rgba(65, 240, 194, 0.34), transparent 32%),
+    radial-gradient(circle at 52% 72%, rgba(155, 92, 255, 0.38), transparent 38%),
+    linear-gradient(135deg, rgba(79, 140, 255, 0.12), rgba(155, 92, 255, 0.08), rgba(65, 240, 194, 0.1));
+  animation: ambient-drift 16s ease-in-out infinite alternate;
+  filter: saturate(1.25);
+}
+
+.ambient-mode .ambient-field {
+  opacity: 0.88;
+}
+
+.ambient-mode .animated-aurora {
+  opacity: 1;
+  animation-duration: 8s;
 }
 
 .noise-layer {
@@ -110,6 +129,24 @@ a {
   }
   50% {
     transform: translate3d(16px, -18px, 0);
+  }
+}
+
+@keyframes ambient-drift {
+  0% {
+    --ambient-x: 14%;
+    --ambient-y: 24%;
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    --ambient-x: 42%;
+    --ambient-y: 58%;
+    transform: scale(1.05) rotate(3deg);
+  }
+  100% {
+    --ambient-x: 78%;
+    --ambient-y: 34%;
+    transform: scale(1.08) rotate(-4deg);
   }
 }
 

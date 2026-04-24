@@ -161,10 +161,15 @@ function App() {
   };
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-cloud text-graphite transition-colors duration-500 dark:bg-ink dark:text-white">
+    <div
+      className={`relative min-h-screen overflow-hidden bg-cloud text-graphite transition-colors duration-500 dark:bg-ink dark:text-white ${
+        theme === "dark" ? "ambient-mode" : ""
+      }`}
+    >
       <CustomCursor />
-      <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+      <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
         <div className="animated-aurora absolute left-1/2 top-[-18rem] h-[44rem] w-[44rem] -translate-x-1/2 rounded-full opacity-70 blur-3xl" />
+        <div className="ambient-field absolute inset-0 opacity-0 transition-opacity duration-700" />
         <div className="absolute bottom-0 left-[-10rem] h-[28rem] w-[28rem] rounded-full bg-mint/20 blur-3xl" />
         <div className="absolute right-[-8rem] top-1/3 h-[30rem] w-[30rem] rounded-full bg-violet/20 blur-3xl" />
         <div className="noise-layer absolute inset-0 opacity-[0.05]" />
@@ -176,7 +181,7 @@ function App() {
         onThemeToggle={() => setTheme((current) => (current === "dark" ? "light" : "dark"))}
       />
 
-      <main>
+      <main className="relative z-10">
         <section
           id="home"
           className="relative flex min-h-screen items-center px-4 pb-16 pt-28 sm:px-8 sm:pb-20 sm:pt-32 lg:px-12"
@@ -597,7 +602,9 @@ function App() {
         </section>
       </main>
 
-      <Footer />
+      <div className="relative z-10">
+        <Footer />
+      </div>
 
       <div className="fixed bottom-4 right-4 z-40 flex gap-2 sm:bottom-5 sm:right-5">
         <a
