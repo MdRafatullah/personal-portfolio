@@ -240,7 +240,7 @@ function App() {
                     key={stat.label}
                     className="rounded-lg border border-slate-900/10 bg-white/55 p-4 backdrop-blur-xl dark:border-white/10 dark:bg-white/8 min-[430px]:p-3 sm:p-4"
                   >
-                    <dt className="text-[0.68rem] uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400 sm:text-xs sm:tracking-[0.2em]">
+                    <dt className="text-[0.68rem] uppercase tracking-[0.18em] text-slate-500 dark:text-slate-100 sm:text-xs sm:tracking-[0.2em]">
                       {stat.label}
                     </dt>
                     <dd className="mt-1 text-2xl font-semibold text-graphite dark:text-white min-[430px]:text-xl sm:text-2xl">
@@ -306,7 +306,7 @@ function App() {
 
             <div className="grid gap-6 lg:grid-cols-[0.86fr_1.14fr]">
               <motion.div
-                className="rounded-3xl border border-slate-900/10 bg-white/65 p-5 shadow-sm backdrop-blur-xl dark:border-white/10 dark:bg-white/8 sm:p-8"
+                className="rounded-3xl border border-slate-900/10 bg-white/65 p-5 shadow-sm backdrop-blur-xl dark:border-white/15 dark:bg-slate-950/75 sm:p-8"
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, margin: "-90px" }}
@@ -316,7 +316,7 @@ function App() {
                 <h3 className="text-xl font-semibold text-graphite dark:text-white sm:text-2xl">
                   Practical, organized, and ready to support growing teams.
                 </h3>
-                <p className="mt-4 text-sm leading-7 text-slate-600 dark:text-slate-300 sm:mt-5 sm:text-base sm:leading-8">
+                <p className="mt-4 text-sm leading-7 text-slate-600 dark:text-white/85 sm:mt-5 sm:text-base sm:leading-8">
                   Dedicated and detail-oriented BBA Finance student at Jagannath University
                   with a focus on finance and business administration. Proficient in MS
                   Office, MS Excel data handling, content writing, AI research tools, and
@@ -326,7 +326,7 @@ function App() {
                   {focusAreas.map((item) => (
                     <div
                       key={item}
-                      className="flex items-start gap-3 rounded-lg bg-slate-900/[0.04] px-4 py-3 text-sm font-medium text-slate-700 dark:bg-white/8 dark:text-slate-200"
+                      className="flex items-start gap-3 rounded-lg bg-slate-900/[0.04] px-4 py-3 text-sm font-medium text-slate-700 dark:bg-slate-900/90 dark:text-white"
                     >
                       <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-mint" aria-hidden="true" />
                       {item}
@@ -342,7 +342,7 @@ function App() {
                     {interests.map((interest) => (
                       <span
                         key={interest}
-                        className="rounded-full border border-slate-900/10 bg-white/60 px-3 py-1 text-xs font-medium text-slate-600 dark:border-white/10 dark:bg-white/8 dark:text-slate-300"
+                        className="rounded-full border border-slate-900/10 bg-white/60 px-3 py-1 text-xs font-medium text-slate-600 dark:border-white/20 dark:bg-slate-900/90 dark:text-white"
                       >
                         {interest}
                       </span>
@@ -358,7 +358,7 @@ function App() {
                   return (
                     <motion.div
                       key={skill.name}
-                      className="rounded-3xl border border-slate-900/10 bg-white/65 p-5 shadow-sm backdrop-blur-xl transition hover:-translate-y-1 hover:border-electric/40 dark:border-white/10 dark:bg-white/8 sm:p-6"
+                      className="rounded-3xl border border-slate-900/10 bg-white/65 p-5 shadow-sm backdrop-blur-xl transition hover:-translate-y-1 hover:border-electric/40 dark:border-white/15 dark:bg-slate-950/75 sm:p-6"
                       initial={{ opacity: 0, x: 24 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true, margin: "-80px" }}
@@ -373,7 +373,7 @@ function App() {
                             <h3 className="font-semibold text-graphite dark:text-white">
                               {skill.name}
                             </h3>
-                            <p className="mt-1 text-sm leading-6 text-slate-600 dark:text-white/80">
+                            <p className="mt-1 text-sm leading-6 text-slate-600 dark:text-white">
                               {skill.description}
                             </p>
                           </div>
@@ -427,7 +427,7 @@ function App() {
                 {timeline.map((item, index) => (
                   <motion.article
                     key={`${item.year}-${item.title}`}
-                    className="relative rounded-3xl border border-slate-900/10 bg-white/65 p-5 shadow-sm backdrop-blur-xl dark:border-white/10 dark:bg-white/8 sm:ml-12 sm:p-6"
+                    className="relative rounded-3xl border border-slate-900/10 bg-white/65 p-5 shadow-sm backdrop-blur-xl dark:border-white/15 dark:bg-slate-950/75 sm:ml-12 sm:p-6"
                     initial={{ opacity: 0, y: 24 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-80px" }}
@@ -442,15 +442,15 @@ function App() {
                         <h3 className="mt-2 text-lg font-semibold text-graphite dark:text-white sm:text-xl">
                           {item.title}
                         </h3>
-                        <p className="mt-1 text-slate-500 dark:text-slate-400">
+                        <p className="mt-1 text-slate-500 dark:text-slate-100">
                           {item.organization}
                         </p>
                       </div>
-                      <div className="rounded-full bg-slate-900/[0.04] px-4 py-2 text-sm font-medium text-slate-600 dark:bg-white/8 dark:text-slate-300">
+                      <div className="rounded-full bg-slate-900/[0.04] px-4 py-2 text-sm font-medium text-slate-600 dark:bg-slate-900/90 dark:text-white">
                         {item.type}
                       </div>
                     </div>
-                    <p className="mt-4 text-sm leading-7 text-slate-600 dark:text-slate-300 sm:mt-5 sm:text-base sm:leading-8">
+                    <p className="mt-4 text-sm leading-7 text-slate-600 dark:text-white/90 sm:mt-5 sm:text-base sm:leading-8">
                       {item.description}
                     </p>
                   </motion.article>
