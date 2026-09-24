@@ -2,18 +2,33 @@
 export default {
   darkMode: "class",
   content: ["./index.html", "./src/**/*.{js,jsx}"],
+  safelist: [
+    "from-red-600",
+    "via-rose-600",
+    "to-amber-600",
+    "from-emerald-600",
+    "via-teal-600",
+    "to-cyan-600",
+    "from-blue-600",
+    "via-indigo-600",
+    "to-sky-500",
+    "to-sky-600",
+    "from-indigo-600",
+    "via-purple-600",
+    "to-blue-600",
+    "from-purple-600",
+    "to-blue-700"
+  ],
   theme: {
     extend: {
       colors: {
-        ink: "#060816",
-        cloud: "#f8fbff",
-        electric: "#4f8cff",
-        violet: "#9b5cff",
-        mint: "#41f0c2",
-        graphite: "#111827"
+        ink: "#070b14",
+        cloud: "#f8fafc",
+        electric: "#2563eb",
+        graphite: "#0f172a"
       },
       boxShadow: {
-        glow: "0 0 45px rgba(79, 140, 255, 0.22)",
+        glow: "0 0 45px rgba(37, 99, 235, 0.22)",
         glass: "0 24px 80px rgba(0, 0, 0, 0.28)"
       },
       fontFamily: {
